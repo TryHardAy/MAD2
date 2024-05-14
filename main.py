@@ -1,7 +1,23 @@
-# This is a sample Python script.
+import csv
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+def import_from_csv(path: str):
+    """
+    Imports data from CSV file
+
+    Args:
+        path (str): Path to file
+
+    Returns:
+        list: data
+        list: data column names
+    """
+
+    with open(path, 'r') as fileHandle:
+        data = list(csv.reader(fileHandle))
+        fileHandle.close()
+    
+    return data[1:], data[0]
 
 
 def print_hi(name):
